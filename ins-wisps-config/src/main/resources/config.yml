@@ -1,0 +1,20 @@
+spring:
+  cloud:
+    nacos:
+      discovery:
+        server-addr: ${wisps.nacos.server-addr}
+        group: ${wisps.nacos.group}
+        register-enabled: false
+      config:
+        server-addr: ${wisps.nacos.server-addr}
+        username: ${wisps.nacos.username}
+        password: ${wisps.nacos.password}
+        namespace: ${wisps.nacos.namespace}
+        group: ${wisps.nacos.group}
+        encode: UTF-8
+        config-retry-time: 3
+        file-extension: yml
+        extension-configs:
+          - data-id: ${spring.application.name}.yml
+            group: wisps
+            refresh: true

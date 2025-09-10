@@ -18,6 +18,7 @@
     <modules>
         <module>ins-wisps-mybatis</module>
         <module>ins-wisps-mybatisplus</module>
+        <module>ins-wisps-config</module>
     </modules>
 
     <properties>
