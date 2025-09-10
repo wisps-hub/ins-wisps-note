@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wisps.zdemo.mapping.mapper.UserMapper">
+    <resultMap id="BaseResultMap" type="com.wisps.zdemo.entity.UserEntity">
+        <id column="id" jdbcType="VARCHAR" property="id"/>
+        <result column="oid" jdbcType="VARCHAR" property="oid"/>
+        <result column="uid" jdbcType="VARCHAR" property="uid"/>
+        <result column="real_name" jdbcType="VARCHAR" property="realName"/>
+        <result column="region" jdbcType="VARCHAR" property="region"/>
+        <result column="mobile" jdbcType="VARCHAR" property="mobile"/>
+        <result column="avatar_url" jdbcType="VARCHAR" property="avatarUrl"/>
+        <result column="email" jdbcType="VARCHAR" property="email"/>
+        <result column="password" jdbcType="VARCHAR" property="password"/>
+        <result column="createtime" jdbcType="TIMESTAMP" property="createtime"/>
+        <result column="modifytime" jdbcType="TIMESTAMP" property="modifytime"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        id,
+        oid,
+        uid,
+        real_name,
+        region,
+        mobile,
+        avatar_url,
+        email,
+        password,
+        createtime,
+        modifytime
+    </sql>
+
+    <select id="getList" resultMap="BaseResultMap">
+        select * from org_user
+        <where>
+            <if test="ids != null and ids.size() > 0">
+                id IN
+                <foreach collection="ids" item="id" open="(" separator="," close=")">
+                    #{id}
+                </foreach>
+            </if>
+        </where>
+    </select>
+</mapper>
