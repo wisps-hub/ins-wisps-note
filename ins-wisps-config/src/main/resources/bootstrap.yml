@@ -1,20 +1,13 @@
 spring:
+  application:
+    name: ins-wisps
+  config:
+    import: nacos:ins-wisps.yml
   cloud:
     nacos:
-      discovery:
-        server-addr: localhost:8848
-        group: wisps
-        register-enabled: false
+      server-addr: localhost:8848
       config:
-        server-addr: localhost:8848
-        username: wisps
-        password: wisps
         namespace: d41a46f7-3b64-44c0-ab9f-b5766ca386d3
         group: wisps
-        encode: UTF-8
-        config-retry-time: 3
-        file-extension: yml
-        extension-configs:
-          - data-id: ins-wisps.yml
-            group: wisps
-            refresh: true
+        import-check:
+          enabled: false # 如果项目暂时不需要nacos, 可以关掉启动检查, 项目就可以正常运行了

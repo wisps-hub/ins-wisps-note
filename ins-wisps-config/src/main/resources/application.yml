@@ -1,3 +1,2 @@
-spring:
-  application:
-    name: ins-wisps
+server:
+  port: 8989
