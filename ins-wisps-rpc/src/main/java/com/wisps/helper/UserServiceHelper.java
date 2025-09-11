@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 
 @Component
-public class DubboUserServiceHelper {
+public class UserServiceHelper {
 
     @Autowired
     DiscoveryClient discoveryClient;

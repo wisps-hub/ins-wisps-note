@@ -22,6 +22,8 @@
         <module>ins-wisps-rpc</module>
         <module>ins-wisps-user</module>
         <module>ins-wisps-user-api</module>
+        <module>ins-wisps-openFeign</module>
+        <module>ins-wisps-openFeign-api</module>
     </modules>
 
     <properties>

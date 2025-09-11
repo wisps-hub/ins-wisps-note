@@ -1,0 +1,8 @@
+server:
+  port: 7777
+spring:
+  application:
+    name: ins-wisps-openfeign
+  cloud:
+    nacos:
+      server-addr: localhost:8848

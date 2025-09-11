@@ -1,6 +1,8 @@
 package com.wisps.controller;
 
-import com.wisps.helper.DubboUserServiceHelper;
+import com.wisps.dto.GoodDto;
+import com.wisps.helper.UserServiceHelper;
+import com.wisps.helper.GoodServiceHelper;
 import com.wisps.vo.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,12 +15,17 @@ import org.springframework.web.bind.annotation.RestController;
 public class RpcController {
 
     @Autowired
-    private DubboUserServiceHelper dubboUserServiceHelper;
+    private UserServiceHelper userServiceHelper;
+    @Autowired
+    private GoodServiceHelper goodServiceHelper;
 
     @GetMapping("/{id}")
     public User demo(@PathVariable("id") Long id) {
-        return dubboUserServiceHelper.getUser(id);
+        return userServiceHelper.getUser(id);
     }
 
-
+    @GetMapping("/good/{id}")
+    public GoodDto good(@PathVariable("id") Long id) {
+        return goodServiceHelper.getById(id);
+    }
 }
