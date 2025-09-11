@@ -1,6 +1,6 @@
 package com.wisps;
 
-public class MainApplication {
+public class MybatisApplication {
     public static void main(String[] args) {
         System.out.println("Hello world!");
     }

@@ -1,14 +1,3 @@
 spring:
-  profiles:
-    active: $env$
   application:
     name: ins-wisps
-  config:
-    import: classpath:config.yml
-wisps:
-  nacos:
-    server-addr: $nacos.server-addr$
-    group: $nacos.group$
-    username: $nacos.username$
-    password: $nacos.password$
-    namespace: $nacos.namespace$

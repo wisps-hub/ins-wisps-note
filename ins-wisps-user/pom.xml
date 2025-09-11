@@ -9,7 +9,7 @@
         <version>0.0.1</version>
     </parent>
 
-    <artifactId>ins-wisps-config</artifactId>
+    <artifactId>ins-wisps-user</artifactId>
 
     <properties>
         <maven.compiler.source>21</maven.compiler.source>
@@ -22,26 +22,19 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
-        <!--Nacos 服务注册与发现-->
+        <dependency>
+            <groupId>com.wisps</groupId>
+            <artifactId>ins-wisps-user-api</artifactId>
+            <version>0.0.1</version>
+        </dependency>
         <dependency>
             <groupId>com.alibaba.cloud</groupId>
             <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
-            <exclusions>
-                <exclusion>
-                    <groupId>org.springframework.cloud</groupId>
-                    <artifactId>spring-cloud-starter-netflix-ribbon</artifactId>
-                </exclusion>
-            </exclusions>
         </dependency>
-        <!--配置中心-->
         <dependency>
             <groupId>com.alibaba.cloud</groupId>
-            <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
-        </dependency>
-        <!--bootstrap-->
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-bootstrap</artifactId>
+            <artifactId>spring-cloud-starter-dubbo</artifactId>
+            <version>2021.1</version>
         </dependency>
     </dependencies>
 </project>
