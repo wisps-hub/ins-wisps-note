@@ -1,5 +1,6 @@
 package com.wisps.config;
 
+import feign.Retryer;
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -13,4 +14,10 @@ public class BeanConfig {
     public RestTemplate restTemplate(){
         return new RestTemplate();
     }
+
+    @Bean
+    Retryer retryer() {
+        return new Retryer.Default();
+    }
+
 }

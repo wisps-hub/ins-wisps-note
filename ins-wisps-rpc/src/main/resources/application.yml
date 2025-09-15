@@ -6,31 +6,12 @@ spring:
   cloud:
     nacos:
       server-addr: localhost:8848
-
-
-#      discovery:
-#        server-addr: localhost:8848
-#        namespace: d41a46f7-3b64-44c0-ab9f-b5766ca386d3
-#        group: wisps
-#dubbo:
-#  application:
-#    name: ins-wisps-rpc
-#    qos-enable: false
-#  registry:
-#    address: nacos://localhost:8848
-#    parameters:
-#      namespace: d41a46f7-3b64-44c0-ab9f-b5766ca386d3
-#      group: wisps
-#  protocols:
-#    dubbo:
-#      id: dubbo
-#      name: dubbo
-#      port: 20880          # 随机端口
-#    rest:
-#      id: rest
-#      name: rest
-#      port: 9999        # 固定 REST 端口
-#  provider:
-#    protocol: dubbo,rest   # 双协议同时暴露
-#  scan:
-#    base-packages: com.wisps.**.service
+    openfeign:
+      client:
+        config:
+          default:
+            connectTimeout: 60000
+            readTimeout: 100
+feign:
+  sentinel:
+    enabled: true
