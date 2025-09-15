@@ -24,6 +24,8 @@
         <module>ins-wisps-user-api</module>
         <module>ins-wisps-openFeign</module>
         <module>ins-wisps-openFeign-api</module>
+        <module>ins-wisps-dubbo</module>
+        <module>ins-wisps-dubbo-api</module>
     </modules>
 
     <properties>

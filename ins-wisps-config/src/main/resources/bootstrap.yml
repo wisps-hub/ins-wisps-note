@@ -8,6 +8,6 @@ spring:
     nacos:
       server-addr: localhost:8848
       config:
-        namespace: 512fc384-7795-47bb-be63-30936c558237
+        namespace: d41a46f7-3b64-44c0-ab9f-b5766ca386d3
         import-check:
           enabled: false # 如果项目暂时不需要nacos, 可以关掉启动检查, 项目就可以正常运行了
