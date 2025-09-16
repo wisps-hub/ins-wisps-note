@@ -6,7 +6,6 @@ import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
-
 @FeignClient(name = "ins-wisps-openfeign", contextId = "GoodService", fallbackFactory = GoodFallBackFactory.class)
 public interface GoodService {
 

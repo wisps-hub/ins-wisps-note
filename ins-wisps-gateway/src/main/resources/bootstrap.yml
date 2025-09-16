@@ -1,0 +1,31 @@
+spring:
+  application:
+    name: ins-wisps-gateway
+  config:
+    import:
+      - nacos:ins-wisps-gateway.yml?group=wisps
+  cloud:
+    nacos:
+      server-addr: localhost:8848
+      config:
+        namespace: d41a46f7-3b64-44c0-ab9f-b5766ca386d3
+        import-check:
+          enabled: true # 如果项目暂时不需要nacos, 可以关掉启动检查, 项目就可以正常运行了
+      discovery:
+        server-addr: localhost:8848
+    gateway:
+      routes:
+        - id: ins-wisps-dubbo
+          uri: lb://ins-wisps-dubbo
+          order: -2
+          predicates:
+            - Path=/api/dubbo/**
+          filters:
+            - StripPrefix=2
+        - id: ins-wisps-dubbo-consumer
+          uri: lb://ins-wisps-dubbo-consumer
+          order: -2
+          predicates:
+            - Path=/api/consumer/**
+          filters:
+            - StripPrefix=2
