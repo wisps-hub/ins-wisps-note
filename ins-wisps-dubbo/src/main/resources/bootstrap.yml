@@ -21,6 +21,14 @@ dubbo:
     name: dubbo
     port: -1
   registry:
-    address: spring-cloud://localhost
+    address: nacos://localhost:8848
+    parameters:
+      namespace: fd6ea807-9c6b-4e31-a49c-ea31762c0242
+      group: wisps-service
+  application:
+    name: ins-wisps-dubbo
+    qos-port: 0
+    qos-enable: true
+    qos-accept-foreign-ip: false
   scan:
     base-packages: com.wisps.**.service

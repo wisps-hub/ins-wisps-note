@@ -1,0 +1,34 @@
+spring:
+  application:
+    name: ins-wisps-dubbo-consumer
+  config:
+    import:
+      - nacos:ins-wisps-dubbo-consumer.yml?group=wisps
+  cloud:
+    nacos:
+      server-addr: localhost:8848
+      config:
+        namespace: d41a46f7-3b64-44c0-ab9f-b5766ca386d3
+        import-check:
+          enabled: true # 如果项目暂时不需要nacos, 可以关掉启动检查, 项目就可以正常运行了
+      discovery:
+        server-addr: localhost:8848
+dubbo:
+  consumer:
+    timeout: 3000
+    check: false
+  protocol:
+    name: dubbo
+    port: -1
+  registry:
+    address: nacos://localhost:8848
+    parameters:
+      namespace: fd6ea807-9c6b-4e31-a49c-ea31762c0242
+      group: wisps-service
+  application:
+    name: ins-wisps-dubbo-consumer
+    qos-port: 0
+    qos-enable: true
+    qos-accept-foreign-ip: false
+  scan:
+    base-packages: com.wisps.**.service
