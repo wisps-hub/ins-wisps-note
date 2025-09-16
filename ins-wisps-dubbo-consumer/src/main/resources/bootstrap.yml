@@ -10,8 +10,8 @@ spring:
       config:
         namespace: d41a46f7-3b64-44c0-ab9f-b5766ca386d3
         import-check:
-          enabled: true # 如果项目暂时不需要nacos, 可以关掉启动检查, 项目就可以正常运行了
-      discovery:
+          enabled: true # 启动检查配置是否存在，不需要可以关掉
+      discovery: # 这个注册是为了暴露给网关
         namespace: d41a46f7-3b64-44c0-ab9f-b5766ca386d3
         group: wisps
 
@@ -23,7 +23,7 @@ dubbo:
   protocol:
     name: dubbo
     port: -1
-  registry:
+  registry: # 这个注册是暴露给内部服务使用的
     address: nacos://localhost:8848
     parameters:
       namespace: fd6ea807-9c6b-4e31-a49c-ea31762c0242
