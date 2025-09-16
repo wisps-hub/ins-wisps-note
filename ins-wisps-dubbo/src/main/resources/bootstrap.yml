@@ -8,7 +8,7 @@ spring:
     nacos:
       server-addr: localhost:8848
       config:
-        namespace: d41a46f7-3b64-44c0-ab9f-b5766ca386d3
+        namespace: 512fc384-7795-47bb-be63-30936c558237
         import-check:
           enabled: true # 如果项目暂时不需要nacos, 可以关掉启动检查, 项目就可以正常运行了
       discovery:
@@ -21,10 +21,6 @@ dubbo:
     name: dubbo
     port: -1
   registry:
-#    address: spring-cloud://localhost
-    address: nacos://localhost:8848
-    parameters:
-      namespace: d41a46f7-3b64-44c0-ab9f-b5766ca386d3
-      group: wisps
+    address: spring-cloud://localhost
   scan:
-    base-packages: com.wisps.**.service
+    base-packages: com.wisps.service

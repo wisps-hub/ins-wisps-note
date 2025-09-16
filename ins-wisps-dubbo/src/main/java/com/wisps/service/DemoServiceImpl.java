@@ -7,6 +7,7 @@ import org.apache.dubbo.config.annotation.DubboService;
 public class DemoServiceImpl implements DemoService{
     @Override
     public DemoDto getById(Long id) {
+        System.out.println("DemoService#getById");
         return DemoDto.builder().id(id).name("demo").desc("desc").build();
     }
 }
