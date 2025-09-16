@@ -35,9 +35,15 @@
         </dependency>
         <!-- dubbo通信 -->
         <dependency>
-            <groupId>com.alibaba.cloud</groupId>
-            <artifactId>spring-cloud-starter-dubbo</artifactId>
-            <version>2021.1</version>
+            <groupId>org.apache.dubbo</groupId>
+            <artifactId>dubbo-spring-boot-starter</artifactId>
+            <version>3.2.10</version>
+        </dependency>
+        <!-- dubbo注册到nacos -->
+        <dependency>
+            <groupId>org.apache.dubbo</groupId>
+            <artifactId>dubbo-registry-nacos</artifactId>
+            <version>3.2.10</version>
         </dependency>
         <!-- bootstrap -->
         <dependency>

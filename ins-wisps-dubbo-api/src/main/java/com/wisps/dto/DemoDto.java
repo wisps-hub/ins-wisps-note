@@ -5,11 +5,13 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.io.Serializable;
+
 @Builder
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class DemoDto {
+public class DemoDto implements Serializable {
     private Long id;
     private String name;
     private String desc;

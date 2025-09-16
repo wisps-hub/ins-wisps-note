@@ -6,6 +6,3 @@ spring:
   cloud:
     nacos:
       server-addr: localhost:8848
-logging: #未生效
-  level:
-    com.wisps.service: debug

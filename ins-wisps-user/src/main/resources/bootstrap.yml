@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: ins-wisps-user
+  config:
+    import:
+      - nacos:ins-wisps-user.yml?group=wisps
+  cloud:
+    nacos:
+      server-addr: localhost:8848
+      config:
+        namespace: d41a46f7-3b64-44c0-ab9f-b5766ca386d3
+        import-check:
+          enabled: true
+      discovery:
+        namespace: d41a46f7-3b64-44c0-ab9f-b5766ca386d3
+        group: wisps
