@@ -7,6 +7,7 @@ import org.springframework.cloud.gateway.filter.factory.AbstractNameValueGateway
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.server.reactive.ServerHttpResponse;
 import org.springframework.stereotype.Component;
+import org.springframework.util.StringUtils;
 import org.springframework.web.server.ServerWebExchange;
 import reactor.core.publisher.Mono;
 
@@ -24,16 +25,19 @@ public class OnceTokenGatewayFilterFactory extends AbstractNameValueGatewayFilte
         return new GatewayFilter() {
             @Override
             public Mono<Void> filter(ServerWebExchange exchange, GatewayFilterChain chain) {
-                return chain.filter(exchange).then(Mono.fromRunnable(() -> {
+                return chain.filter(exchange).then(Mono.fromRunnable(()->{
                     ServerHttpResponse response = exchange.getResponse();
                     HttpHeaders headers = response.getHeaders();
-                    String value = config.getValue();
-                    if (UUID_TOKEN.equals(value)){
-                        value = UUID.fastUUID().toString();
-                    }else if (JWT_TOKEN.equals(value)){
-                        value = "123.456.789";
+                    String tokenType = config.getValue();
+                    if (StringUtils.hasText(tokenType)) {
+                        tokenType = tokenType.toLowerCase();
+                        if (tokenType.equals(UUID_TOKEN)) {
+                            tokenType = UUID.fastUUID().toString();
+                        }else if (tokenType.equals(JWT_TOKEN)){
+                            tokenType = "jwt_123.345.567";
+                        }
+                        headers.add(config.getName(), tokenType);
                     }
-                    headers.add(config.getName(), value);
                 }));
             }
         };

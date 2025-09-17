@@ -14,7 +14,10 @@ spring:
       discovery: # 这个注册是为了暴露给网关
         namespace: d41a46f7-3b64-44c0-ab9f-b5766ca386d3
         group: wisps
-
+    sentinel:
+      transport:
+        dashboard: localhost:8085
+      eager: true
 dubbo:
   consumer:
     timeout: 3000
