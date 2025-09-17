@@ -15,6 +15,12 @@ spring:
         namespace: d41a46f7-3b64-44c0-ab9f-b5766ca386d3
         group: wisps
     gateway:
+      globalcors:
+        cors-configurations:
+          '[/**]':
+            allowedOrigins: '*'
+            allowedMethods: '*'
+            allowedHeaders: '*'
       default-filters:
         - AddResponseHeader=X-Response-wisps, 123
       routes:
@@ -40,3 +46,4 @@ spring:
             - Wisps=user,haha
           filters:
             - StripPrefix=2
+            - OnceToken=X-Response-onceToken,uuid
