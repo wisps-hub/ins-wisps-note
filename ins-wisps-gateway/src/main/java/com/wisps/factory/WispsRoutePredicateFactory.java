@@ -13,6 +13,9 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.function.Predicate;
 
+/**
+ *自定义路由断言工厂
+ */
 @Component
 public class WispsRoutePredicateFactory extends AbstractRoutePredicateFactory<WispsRoutePredicateFactory.Config> {
 
