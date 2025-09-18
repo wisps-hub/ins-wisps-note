@@ -11,11 +11,14 @@ import org.springframework.util.StringUtils;
 import org.springframework.web.server.ServerWebExchange;
 import reactor.core.publisher.Mono;
 
+/**
+ * 自定义过滤器工厂
+ */
 @Component
 public class OnceTokenGatewayFilterFactory extends AbstractNameValueGatewayFilterFactory {
 
-    private static final String UUID_TOKEN = "uuid";
-    private static final String JWT_TOKEN = "jwt";
+    public static final String UUID_TOKEN = "uuid";
+    public static final String JWT_TOKEN = "jwt";
 
     @Override
     public GatewayFilter apply(NameValueConfig config) {
@@ -39,4 +42,5 @@ public class OnceTokenGatewayFilterFactory extends AbstractNameValueGatewayFilte
             }
         };
     }
+
 }
