@@ -3,17 +3,17 @@ spring:
     name: ins-wisps-dubbo-consumer
   config:
     import:
-      - nacos:ins-wisps-dubbo-consumer.yml?group=wisps
+      - nacos:${spring.application.name}.yml?group=${wisps.nacos.group}
   cloud:
     nacos:
       server-addr: localhost:8848
       config:
-        namespace: d41a46f7-3b64-44c0-ab9f-b5766ca386d3
+        namespace: ${wisps.nacos.namespace}
         import-check:
           enabled: true # 启动检查配置是否存在，不需要可以关掉
       discovery: # 这个注册是为了暴露给网关
-        namespace: d41a46f7-3b64-44c0-ab9f-b5766ca386d3
-        group: wisps
+        namespace:  ${wisps.nacos.namespace}
+        group:  ${wisps.nacos.group}
     sentinel:
       transport:
         dashboard: localhost:8085
@@ -29,12 +29,19 @@ dubbo:
   registry: # 这个注册是暴露给内部服务使用的
     address: nacos://localhost:8848
     parameters:
-      namespace: fd6ea807-9c6b-4e31-a49c-ea31762c0242
-      group: wisps-service
+      namespace:  ${wisps.nacos.rpc-namespace}
+      group: ${wisps.nacos.rpc-group}
   application:
-    name: ins-wisps-dubbo-consumer
+    name: ${spring.application.name}
     qos-port: 0
     qos-enable: true
     qos-accept-foreign-ip: false
   scan:
     base-packages: com.wisps.**.service
+
+wisps:
+  nacos:
+    namespace: d41a46f7-3b64-44c0-ab9f-b5766ca386d3
+    group: wisps
+    rpc-namespace: fd6ea807-9c6b-4e31-a49c-ea31762c0242
+    rpc-group: wisps-service
