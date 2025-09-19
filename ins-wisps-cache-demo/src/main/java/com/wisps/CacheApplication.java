@@ -1,7 +1,11 @@
 package com.wisps;
 
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
 public class CacheApplication {
     public static void main(String[] args) {
-        System.out.println("Hello world!");
+        SpringApplication.run(CacheApplication.class, args);
     }
 }

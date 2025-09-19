@@ -1,6 +1,7 @@
 package com.wisps.cache;
 
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Component;
 import redis.clients.jedis.BitOP;
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.Tuple;
