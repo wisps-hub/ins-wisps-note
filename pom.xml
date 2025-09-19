@@ -28,6 +28,7 @@
         <module>ins-wisps-dubbo-api</module>
         <module>ins-wisps-dubbo-consumer</module>
         <module>ins-wisps-gateway</module>
+        <module>ins-wisps-cache-demo</module>
     </modules>
 
     <properties>
