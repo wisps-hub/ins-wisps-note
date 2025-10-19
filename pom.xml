@@ -30,6 +30,7 @@
         <module>ins-wisps-gateway</module>
         <module>ins-wisps-cache-demo</module>
         <module>ins-wisps-mq</module>
+        <module>ins-wisps-idpdemo</module>
     </modules>
 
     <properties>

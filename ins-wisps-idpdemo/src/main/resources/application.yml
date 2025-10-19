@@ -1,0 +1,19 @@
+server:
+  port: 8000
+wisps:
+  idp:
+    enabled: true
+    topic:
+      demo: "idp.ins-wisps-idpdemo.demo.event"
+    group:
+      demo: "ins-wisps-idpdemo-idp.ins-wisps-idpdemo.demo.event-event-1"
+
+spring:
+  kafka:
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+    consumer:
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+    bootstrap-servers: localhost:9092
