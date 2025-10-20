@@ -1,0 +1,24 @@
+spring:
+  kafka:
+    bootstrap-servers: localhost:9092
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+    consumer:
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+  data:
+    redis:
+      host: localhost
+      port: 6379
+      password:
+idp:
+  topic:
+    demo: idp.ins-wisps-mq.demo.event
+  group:
+    demo: ins-wisps-mq-idp.ins-wisps-mq.demo.event-event-1
+
+wisps:
+  idp:
+    enabled: true
+    kafka_max_poll_time: 60000

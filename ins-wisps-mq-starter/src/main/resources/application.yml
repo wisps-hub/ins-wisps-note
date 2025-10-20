@@ -1,0 +1,8 @@
+mb:
+  kafka:
+    bootstrap-servers: localhost:9092
+    producer:
+      retries: 3
+    consumer:
+      group-id: ${spring.application.name}
+      enable-auto-commit: false
