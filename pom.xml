@@ -37,6 +37,7 @@
         <module>ins-wisps-openai</module>
         <module>ins-wisps-saaClient</module>
         <module>ins-wisps-openaiClient</module>
+        <module>ins-wisps-chatmemory</module>
     </modules>
 
     <properties>
